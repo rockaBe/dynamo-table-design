@@ -1,0 +1,20 @@
+{
+  "Subset": {
+    "S": "US-EXPERIMENT-CONTROL"
+  },
+  "OSLearnLang": {
+    "S": "IOS#TUR"
+  },
+  "id": {
+    "S": "TUR_MLA_1M"
+  },
+  "os": {
+    "S": "IOS"
+  },
+  "learn_language_alpha3": {
+    "S": "TUR"
+  },
+  "period": {
+    "N": "1"
+  }
+}

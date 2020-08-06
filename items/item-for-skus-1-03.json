@@ -1,0 +1,20 @@
+{
+  "Subset": {
+    "S": "US-EXPERIMENT-TEST"
+  },
+  "OSLearnLang": {
+    "S": "IOS#DAN"
+  },
+  "id": {
+    "S": "DAN_MLA_1M"
+  },
+  "os": {
+    "S": "IOS"
+  },
+  "learn_language_alpha3": {
+    "S": "DAN"
+  },
+  "period": {
+    "N": "1"
+  }
+}

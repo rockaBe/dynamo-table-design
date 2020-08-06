@@ -1,0 +1,9 @@
+{
+  "Subset":{ "S": "US-EXPERIMENT-TEST"},
+  "OSLearnLang": { "S": "ANDROID#TUR" },
+  "id": { "S": "tur_12m_202001_freetrial_7d" },
+  "os": { "S": "android" },
+  "learn_language_alpha3": { "S": "TUR" },
+  "period": { "N": "12" },
+  "promoted": { "BOOL": true }
+}

@@ -1,0 +1,20 @@
+{
+  "Subset": {
+    "S": "US-EXPERIMENT-TEST"
+  },
+  "OSLearnLang": {
+    "S": "ANDROID#ENG"
+  },
+  "id": {
+    "S": "eng_3m_202001_freetrial_7d"
+  },
+  "os": {
+    "S": "android"
+  },
+  "learn_language_alpha3": {
+    "S": "ENG"
+  },
+  "period": {
+    "N": "3"
+  }
+}
