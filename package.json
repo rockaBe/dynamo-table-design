@@ -1,0 +1,26 @@
+{
+  "name": "dynamo-table-design",
+  "version": "0.0.2",
+  "description": "A project for researching different approaches for NoSQL table design",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rockaBe/dynamo-table-design.git"
+  },
+  "keywords": [
+    "dynamodb",
+    "research"
+  ],
+  "author": "Bernd Naehler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rockaBe/dynamo-table-design/issues"
+  },
+  "homepage": "https://github.com/rockaBe/dynamo-table-design#readme",
+  "dependencies": {
+    "aws-sdk": "^2.728.0"
+  }
+}

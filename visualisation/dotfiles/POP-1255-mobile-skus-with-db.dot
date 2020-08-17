@@ -1,0 +1,61 @@
+digraph {
+  fontsize = 34;
+  label = "mobile skus with DB";
+  labelloc = top;
+  // Style Defaults
+
+  graph [
+    rankdir = LR,
+    ranksep = 1,
+    nodesep = .5,
+    sep = 20,
+    esep = 10,
+    forcelabels = true,
+    bgcolor = transparent
+  ]
+  node [
+    margin = 0.5,
+    shape = box,
+    style = filled,
+    fillcolor = white,
+    fontname = SanFrancisco
+  ];
+  edge [
+    arrowhead = open
+  ];
+
+  // Define Nodes
+  MobileClient [
+    margin="0.2"
+    shape="ellipse"
+    label="mobile client\nAndroid / iOS"
+    pos="center"
+  ];
+
+  CloudFront [label="CloudFront\nCDN" fillcolor="cornsilk"];
+  APIGateway [label="API Gateway\nRouting" fillcolor="cornsilk"];
+
+  MobileSkus [label="&lambda;\nMobile Skus" fillcolor="orange"];
+  Home [label="ECS\nHome Babbel\nEligibility API" fillcolor="cornsilk"];
+  AbTester [label="&lambda;\nAbTester API" fillcolor="orange"];
+  SkusDynamoDB [label="!! NEW !!\nDynamoDB for SKUs" fontcolor="red" fillcolor="orange" shape="cylinder"];
+
+  // Define nodes to be on the same rank
+  { rank=same MobileSkus Home AbTester }
+
+  // Relationships between nodes
+  MobileClient -> CloudFront -> APIGateway [label="1 - initial request" color="black"];
+  APIGateway -> MobileSkus [label="1 - initial request" color="black"];
+
+
+  MobileSkus:ne -> AbTester:se [label="2 - check for experiments" color="forestgreen"];
+  AbTester:sw -> MobileSkus:nw [label="3 - respond\nw/ experiments" color="forestgreen"];
+
+  MobileSkus -> APIGateway -> Home [label="4 - check eligibility" color="darkturquoise"];
+  Home -> APIGateway -> MobileSkus [label="5 - result eligibility" color="darkturquoise"];
+
+  MobileSkus -> SkusDynamoDB [label="6 - query SKUs\nby strategy" color="red"];
+  SkusDynamoDB -> MobileSkus [label="7 - respond with\nrequested SKUs" color="red"];
+
+  MobileSkus -> APIGateway -> CloudFront -> MobileClient [label="8 - response" color="black"]
+}
