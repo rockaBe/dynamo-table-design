@@ -3,7 +3,13 @@
 ### Running
 As simple as running the following command in a separate shell
 ```shell
-docker run -p 8000:8000 amazon/dynamodb-local
+docker run -p 8000:8000 amazon/dynamodb-local -sharedDb
+```
+
+In case you want to use the DB within other use cases e.g. running communicating with it from a node console, you'll need to pass the `-sharedDb` flag. But then the command needs to be extended a bit to:
+
+```shell
+docker run -p 8000:8000 -v $(pwd)/local/dynamodb:/data/ amazon/dynamodb-local -jar DynamoDBLocal.jar -sharedDb -dbPath /data
 ```
 
 ### Configuration
@@ -17,7 +23,7 @@ To not do something nasty in production, ensure to source the nested `.env` file
 ## Creating a table
 ```shell
 AWS_SECRET_ACCESS_KEY=local aws dynamodb create-table \
-    --table-name SKUs \
+    --table-name SkuTable \
     --attribute-definitions \
         AttributeName=Subset,AttributeType=S \
         AttributeName=OSLearnLang,AttributeType=S \
@@ -49,4 +55,5 @@ aws dynamodb query \
     }' \
     --endpoint-url http://localhost:8000
 ```
+
 
